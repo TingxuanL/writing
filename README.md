@@ -33,7 +33,11 @@ For illustration, we use the lightweight web server in Django. On the server sid
 ```bash
 # Activate the environment
 conda activate writing
+# Enter the code directory
+cd src
+# Collect the static files
 python manage.py collectstatic --no-input
+# Start the web server
 python manage.py runserver 0:8000
 ```
 
