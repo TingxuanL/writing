@@ -1,0 +1,70 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load my_auth_extra %}
+
+{% block title %}| {% translate "学生作答情况" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "学生作答情况" %}</h2>
+    <hr>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            {% if user|has_group:'Writing Admin' %}
+            <th scope="col">Teacher</th>
+            {% endif %}
+            <th scope="col">Student</th>
+            <th scope="col">Exam Title</th>
+            <th scope="col">Submitted?</th>
+            <th scope="col">Score</th>
+            <th scope="col">Operation</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for student, exam, record in exam_records %}
+            <tr>
+                {% if user|has_group:'Writing Admin' %}
+                    <th scope="row">{{student.teacherstudentrelation.teacher.username}}</th>
+                    <th>{{student.username}}</th>
+                {% else %}
+                    <th scope="row">{{student.username}}</th>
+                {% endif %}
+                <td>
+                    {% if exam %}
+                        {{exam.title}}
+                    {% else %}
+                        Not assigned yet
+                    {% endif %}
+                </td>
+                <td>
+                    {% if record %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+                <td>
+                    {% if record %}
+                        {% if record.score < 0 %}
+                            Not graded yet
+                        {% else %}
+                            {{record.score}}
+                        {% endif %}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if record %}
+                        <a href="{% url 'writing:grade_exam_record' record_id=record.id %}" class="link-primary">{% translate "Grade" %}</a>
+                    {% else %}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+{% endblock main_content %}

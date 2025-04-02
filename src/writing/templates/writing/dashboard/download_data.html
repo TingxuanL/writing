@@ -1,0 +1,29 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "管理特征" %}{% endblock title %}
+
+{% block main_content %}
+    <div class="row mt-2">
+        <div class="col">
+            <h2>{% translate "提取特征" %} <span class="badge bg-secondary" id="badge-extract-features"></span></h2>
+            <form id="extract-features-form" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:extract_features_ajax' %}">
+                    {% csrf_token %}
+                <button type="submit" class="btn btn-primary" id="btn-extract">{% translate "提取" %}</button>
+            </form>
+        </div>
+    </div>
+    <!-- <hr class="my-2"> -->
+    <!-- <h2>下载数据</h2> -->
+    <div class="row mt-2">
+        <div class="col">
+            <a href="{% url 'writing:download_features' %}" class="btn btn-primary invisible" id="btn-download">{% translate "点此下载" %}</a>
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/download_data.js' %}"></script>
+{% endblock extra_jsfile %}

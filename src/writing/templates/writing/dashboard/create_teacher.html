@@ -1,0 +1,30 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "批量添加教师账号" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "批量添加教师账号" %}<span class="badge bg-secondary" id="badgeCreateStudent"></span></h2>
+    <form id="FormCreateStudent" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:create_teacher_ajax' %}">
+                    {% csrf_token %}
+      <div class="mb-3">
+      
+        
+        <label for="TextareaStudentIDs" class="form-label">{% translate "教师账号 (每行一个)。账号不支持中文字符和空格，仅支持英文字母, 数字和@/./+/-/_。每个账号只能创建一次。" %}</label>
+        <textarea class="form-control" id="TextareaStudentIDs" name="TextareaStudentIDs" rows="10" required></textarea>
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary mt-2" id="BtnCreate">{% translate "创建" %}</button>
+      
+      
+    </div>
+  </form>
+</div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/create_teacher.js' %}"></script>
+{% endblock extra_jsfile %}

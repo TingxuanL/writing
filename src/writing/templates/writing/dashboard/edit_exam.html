@@ -1,0 +1,34 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "更新写作考试" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "更新写作考试" %} <span class="badge bg-secondary" id="badgeCreateStudent"></span></h2>
+    <form id="FormCreateStudent" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:edit_exam_ajax' exam_id=exam.id %}">
+                    {% csrf_token %}
+    <div class="mb-3">
+        <label for="ExamTitle" class="form-label">{% translate "标题" %}</label>
+        <input type="text" class="form-control" id="ExamTitle" name="ExamTitle" value="{{exam.title}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="ExamTime" class="form-label">{% translate "时长 (分钟)" %}</label>
+        <input type="number" class="form-control" id="ExamTime" name="ExamTime" value="{{exam.time}}" required>
+    </div>
+    <div class="mb-3">        
+        <label for="TextareaExamDiscription" class="form-label">{% translate "题目描述" %}</label>
+        <textarea class="form-control" id="TextareaExamDiscription" name="TextareaExamDiscription" rows="15" required>{{ exam.description | escape }}</textarea>
+        
+        <button type="submit" class="btn btn-primary mt-2" id="BtnCreate">{% translate "更新" %}</button>
+      
+    </div>
+  </form>
+</div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/create_exam.js' %}"></script>
+{% endblock extra_jsfile %}

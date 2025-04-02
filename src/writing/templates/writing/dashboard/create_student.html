@@ -1,0 +1,40 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "批量添加学生账号" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "批量添加学生账号" %}<span class="badge bg-secondary" id="badgeCreateStudent"></span></h2>
+    <form id="FormCreateStudent" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:create_student_ajax' %}">
+                    {% csrf_token %}
+      <div class="mb-3">
+      
+        
+        <label for="TextareaStudentIDs" class="form-label">{% translate "学生学号 (每行一个)。每个学号不支持中文字符和空格，仅支持英文字母, 数字和@/./+/-/_。每个学号只能创建一次。" %}</label>
+        <textarea class="form-control" id="TextareaStudentIDs" name="TextareaStudentIDs" rows="10" required></textarea>
+        
+        {% if teachers %}
+        <div class="col-md-3">
+          <label for="inputTeacherID" class="form-label">{% translate "所属老师" %}</label>
+          <select id="inputTeacherID" name="inputTeacherID" class="form-select">
+            <option value="none" selected>{% translate "请选择" %}...</option>
+            {% for teacher in teachers %}
+              <option value="{{ teacher.id }}">{{teacher.username}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary mt-2" id="BtnCreate">{% translate "创建" %}</button>
+      
+      
+    </div>
+  </form>
+</div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/create_student.js' %}"></script>
+{% endblock extra_jsfile %}

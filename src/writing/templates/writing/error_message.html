@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ message }}</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="{% static 'accounts/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'accounts/css/bootstrap-icons.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+            <div class="row mt-5 text-center">
+                <div class="col-12">
+                    <p>{{ message }}</p>
+                </div>
+                <!-- <div class="col">
+                    <a class="btn btn-outline-primary btn-sm" href="{% url 'accounts:logout_view' %}" role="button" target="_blank" rel="noopener noreferrer">Log out</a>
+                </div> -->
+            </div>
+        </div>
+
+        <script src="{% static 'accounts/js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'accounts/js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+
+</html>

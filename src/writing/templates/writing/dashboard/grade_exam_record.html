@@ -1,0 +1,47 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "批改考试" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "批改考试" %} <span class="badge bg-secondary" id="badgeCreateStudent"></span></h2>
+    <form id="FormCreateStudent" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:grade_exam_record_ajax' record_id=record.id %}">
+                    {% csrf_token %}
+    <div class="mb-3">
+        <label for="ExamScore" class="form-label">{% translate "分数 (整数)" %}</label>
+        <input type="number" class="form-control" id="ExamScore" name="ExamScore" min="0" step="1"
+            {% if record.score < 0 %}
+                value="" 
+            {% else %}
+                value="{{record.score}}"
+            {% endif %}
+        required>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary mt-2" id="BtnCreate">{% translate "提交" %}</button>
+    </div>
+  </form>
+</div>
+<div class="row mt-2">
+    <div class="col">
+    <label for="ExamDescription" class="form-label"> {{ record.exam.title }}{% translate "题目要求" %}</label>
+    <textarea readonly class="form-control" id="ExamDescription" name="ExamDescription" rows="5" >{{ record.exam.description | escape }}</textarea>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col">
+    <label for="EnglishWriting" class="form-label"> {{ record.user.username }} {% translate "的答案" %}
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'writing:replay_user_exam' user_id=record.user.id exam_id=record.exam.id %}" role="button" target="_blank" rel="noopener noreferrer">{% translate "Replay" %}</a>
+    </label>
+    <textarea readonly class="form-control" id="EnglishWriting" name="EnglishWriting" rows="20" >{{ record.article | escape }}</textarea>
+    </div>
+</div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/grade_exam_record.js' %}"></script>
+ 
+{% endblock extra_jsfile %}

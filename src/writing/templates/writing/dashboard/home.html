@@ -1,0 +1,25 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load my_auth_extra %}
+
+{% block main_content %}
+    <div class="row mt-2">
+        <div class="col">
+            <h2> I have {{ students|length }} students. </h2>
+        </div>
+    </div>
+    {% if user|has_group:'Writing Admin' %}
+    <div class="row mt-2">
+        <div class="col">
+            <h2> In total, {{ teachers|length }} teachers. </h2>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            {% for teacher in teachers %}
+            <p> {{ teacher.username }} has {{ teacher.my_students.all|length }} students </p>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock main_content %}

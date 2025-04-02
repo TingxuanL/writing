@@ -1,0 +1,29 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "随机分配作文题目" %}{% endblock title %}
+
+{% block main_content %}
+    <div class="row mt-2">
+        <div class="col">
+            <h2>{% translate "随机分配作文题目" %} <span class="badge bg-secondary" id="badge-extract-features"></span></h2>
+            <form id="extract-features-form" role="form" method="POST"
+                          data-ajax-action="{% url 'writing:assign_exam_ajax' %}">
+                    {% csrf_token %}
+                <button type="submit" class="btn btn-primary" id="btn-extract">{% translate "Assign" %}</button>
+            </form>
+        </div>
+    </div>
+    <!-- <hr class="my-2"> -->
+    <!-- <h2>下载数据</h2> -->
+    <div class="row mt-2">
+        <div class="col">
+            
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block extra_jsfile %}
+<script src="{% static 'writing/dashboard/js/assign_exam.js' %}"></script>
+{% endblock extra_jsfile %}

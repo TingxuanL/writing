@@ -1,0 +1,327 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-01 21:14-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/templates/accounts/login.html:10
+msgid "Login"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:24
+msgid "Please sign in"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:28
+msgid "Username"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:32
+msgid "Password"
+msgstr ""
+
+#: accounts/templates/accounts/login.html:40
+msgid "Sign in"
+msgstr ""
+
+#: writing/models.py:12
+msgid "exam title"
+msgstr ""
+
+#: writing/models.py:13
+msgid "Title. Do not exceed 255 characters."
+msgstr ""
+
+#: writing/models.py:17
+msgid "description"
+msgstr ""
+
+#: writing/models.py:20
+msgid "minutes for this exam"
+msgstr ""
+
+#: writing/models.py:31 writing/models.py:61
+msgid "student"
+msgstr ""
+
+#: writing/models.py:37 writing/models.py:79
+msgid "exam"
+msgstr ""
+
+#: writing/models.py:41
+msgid "first_access_time"
+msgstr ""
+
+#: writing/models.py:55
+msgid "teacher"
+msgstr ""
+
+#: writing/models.py:72
+msgid "user"
+msgstr ""
+
+#: writing/models.py:83
+msgid "article"
+msgstr ""
+
+#: writing/models.py:86
+msgid "record"
+msgstr ""
+
+#: writing/models.py:89
+msgid "datetime"
+msgstr ""
+
+#: writing/models.py:92
+msgid "features"
+msgstr ""
+
+#: writing/models.py:96
+msgid "score"
+msgstr ""
+
+#: writing/templates/writing/dashboard/assign_exam.html:5
+#: writing/templates/writing/dashboard/assign_exam.html:10
+msgid "随机分配作文题目"
+msgstr ""
+
+#: writing/templates/writing/dashboard/assign_exam.html:14
+msgid "Assign"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:11
+msgid "管理"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:140
+msgid "Dashboard"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:147
+msgid "Home"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:154
+msgid "批改作文"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:160
+msgid "新建作文题目"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:166
+msgid "现有作文题目"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:172
+msgid "新建学生账号"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:180
+msgid "新建老师账号"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:186
+msgid "分配作文题目"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:192
+msgid "下载特征"
+msgstr ""
+
+#: writing/templates/writing/dashboard/base.html:208
+msgid "退出登录"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_exam.html:5
+#: writing/templates/writing/dashboard/create_exam.html:9
+msgid "添加写作考试"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_exam.html:14
+#: writing/templates/writing/dashboard/edit_exam.html:14
+msgid "标题"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_exam.html:18
+#: writing/templates/writing/dashboard/edit_exam.html:18
+msgid "时长 (分钟)"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_exam.html:22
+#: writing/templates/writing/dashboard/edit_exam.html:22
+msgid "题目描述"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_exam.html:25
+#: writing/templates/writing/dashboard/create_student.html:30
+#: writing/templates/writing/dashboard/create_teacher.html:20
+msgid "创建"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_student.html:5
+#: writing/templates/writing/dashboard/create_student.html:9
+msgid "批量添加学生账号"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_student.html:16
+msgid ""
+"学生学号 (每行一个)。每个学号不支持中文字符和空格，仅支持英文字母, 数字和@/./"
+"+/-/_。每个学号只能创建一次。"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_student.html:21
+msgid "所属老师"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_student.html:23
+msgid "请选择"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_teacher.html:5
+#: writing/templates/writing/dashboard/create_teacher.html:9
+msgid "批量添加教师账号"
+msgstr ""
+
+#: writing/templates/writing/dashboard/create_teacher.html:16
+msgid ""
+"教师账号 (每行一个)。账号不支持中文字符和空格，仅支持英文字母, 数字和@/./+/-/"
+"_。每个账号只能创建一次。"
+msgstr ""
+
+#: writing/templates/writing/dashboard/download_data.html:5
+msgid "管理特征"
+msgstr ""
+
+#: writing/templates/writing/dashboard/download_data.html:10
+msgid "提取特征"
+msgstr ""
+
+#: writing/templates/writing/dashboard/download_data.html:14
+msgid "提取"
+msgstr ""
+
+#: writing/templates/writing/dashboard/download_data.html:22
+msgid "点此下载"
+msgstr ""
+
+#: writing/templates/writing/dashboard/edit_exam.html:5
+#: writing/templates/writing/dashboard/edit_exam.html:9
+msgid "更新写作考试"
+msgstr ""
+
+#: writing/templates/writing/dashboard/edit_exam.html:25
+msgid "更新"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_list.html:5
+#: writing/templates/writing/dashboard/exam_list.html:9
+msgid "现有作文题目列表"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_list.html:16
+msgid "时长"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_list.html:16
+#: writing/templates/writing/exam.html:22
+msgid "分钟"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_list.html:17
+msgid "编辑"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_record_list.html:6
+#: writing/templates/writing/dashboard/exam_record_list.html:10
+msgid "学生作答情况"
+msgstr ""
+
+#: writing/templates/writing/dashboard/exam_record_list.html:60
+msgid "Grade"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:5
+#: writing/templates/writing/dashboard/grade_exam_record.html:9
+msgid "批改考试"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:14
+msgid "分数 (整数)"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:24
+#: writing/templates/writing/exam.html:24
+msgid "提交"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:30
+msgid "题目要求"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:36
+msgid "的答案"
+msgstr ""
+
+#: writing/templates/writing/dashboard/grade_exam_record.html:37
+msgid "Replay"
+msgstr ""
+
+#: writing/templates/writing/exam.html:20
+msgid "英文写作"
+msgstr ""
+
+#: writing/templates/writing/exam.html:22
+msgid "使用时间:"
+msgstr ""
+
+#: writing/templates/writing/exam.html:36
+msgid "根据左边的要求，在下方空白处开始写作。写作时间是"
+msgstr ""
+
+#: writing/templates/writing/exam.html:36
+msgid ""
+"分钟。注意: 无法使用复制/粘贴功能。每位学生只能登录一次。完成写作后请点击 “提"
+"交”。"
+msgstr ""
+
+#: writing/views.py:36
+msgid "您还未被分配考试！"
+msgstr ""
+
+#: writing/views.py:39
+msgid "请勿重复进入考试!"
+msgstr ""
+
+#: writing/views.py:44 writing/views.py:64
+msgid "您已参加过考试，请勿重复参加！"
+msgstr ""
+
+#: writing/views.py:56
+msgid "感谢您的参与！"
+msgstr ""
+
+#: writing/views.py:78
+msgid "您还未参加过本考试"
+msgstr ""
+
+#: writing/views.py:95
+msgid "该用户还未参加过考试！"
+msgstr ""
+
+#: writing/views.py:125
+msgid "Permission denied"
+msgstr "没有权限"

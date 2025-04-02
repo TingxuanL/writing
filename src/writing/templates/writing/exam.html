@@ -1,0 +1,79 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="{% static 'writing/css/exam.css' %}" rel="stylesheet">
+        <title>{{ exam.title }}</title>
+    </head>
+
+    <body>
+        {% if record %}
+        <form id="WritingForm" name="WritingForm" action="{% url 'writing:record_exam' exam.id %}" method="post">
+        {% csrf_token %}
+        {% endif %}
+        <div id="ExerciseTitle"  onmousedown="return false" onselectstart="return false">
+            <label>{% translate "英文写作" %}</label>
+            {{ username }}
+            <a id="timer">{% translate "使用时间:" %} <span id="TimeMinute">0</span> {% translate "分钟" %}</a>
+            {% if record %}
+            <input type="submit" class="obvious-button" value="{% translate '提交' %}">
+            {% else %}
+            <button id="ReplayButton" class="obvious-button" onclick="replayRecord()">Replay</button>
+            {% endif %}
+        </div> 
+
+        <div id="Article"  onmousedown="return false" onselectstart="return false">
+            {{ exam.description }}
+        </div>
+
+        <div id="Exercise">
+            <label for="EnglishWriting">
+                {% translate "根据左边的要求，在下方空白处开始写作。写作时间是" %} {{ exam.time }} {% translate "分钟。注意: 无法使用复制/粘贴功能。每位学生只能登录一次。完成写作后请点击 “提交”。" %}
+            </label>
+            {% if record %}
+                <textarea id="EnglishWriting" name="EnglishWriting" rows="10" oninput="keyboardInput(event)" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" oncontextmenu="return false" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
+            {% else %}
+                <textarea readonly id="EnglishWriting" name="EnglishWriting" rows="10" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" oncontextmenu="return false" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea>
+            {% endif %}
+        </div>
+        
+        <input type="hidden" id="examRecord" name="examRecord">
+        {% if record %}
+        </form>
+        {% endif %}
+
+
+        <script src="{% static 'writing/js/Exercise.js' %}"></script>
+        
+        <script>
+            var json_file_name = "{{user.username}}"+".json";
+            {% if not record %}
+                record = {{ writing_record.record|safe }};
+                var auto_save_json = false;
+            {% else %}
+                var myInterval = setInterval(timer, 60*1000);
+                var auto_save_json = true;
+                window.onload=function(){
+                    var auto = setTimeout(function(){ submitform(); }, {{ exam.time }}*60*1000 );
+
+                    function submitform(){
+                        record["submitTime"] = new Date().getTime();
+                        json_string = JSON.stringify(record);
+                        document.getElementById("examRecord").value = json_string;
+                        if (auto_save_json) {
+                            saveTemplateAsFile(json_file_name, json_string);
+                        }
+                        document.forms["WritingForm"].submit();
+                    }
+                }
+            {% endif %}
+        </script>
+
+    </body>
+
+</html>

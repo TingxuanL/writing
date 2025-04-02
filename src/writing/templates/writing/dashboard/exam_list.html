@@ -1,0 +1,29 @@
+{% extends 'writing/dashboard/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| {% translate "现有作文题目列表" %}{% endblock title %}
+
+{% block main_content %}
+<div class="row mt-2">
+    <h2>{% translate "现有作文题目列表" %}</h2>
+    <hr>
+    {% for exam in exams %}
+        <!-- <div class="row"> -->
+            <div class="col-12">
+                <h3>
+                    {{ exam.title }}
+                    <small class="text-muted">{% translate "时长" %} {{ exam.time }} {% translate "分钟" %}</small>
+                    <a href="{% url 'writing:edit_exam' exam_id=exam.id %}"  class="btn btn-outline-primary">{% translate "编辑" %}</a>
+                </h3>
+            </div>
+        <!-- </div> -->
+        <!-- <div class="row"> -->
+            <div class="col-12 mb-2">
+                <textarea readonly class="form-control"  rows="5" required>{{ exam.description | escape }}</textarea>
+            </div>
+        <!-- </div> -->
+        <hr>
+    {% endfor %}
+</div>
+{% endblock main_content %}
