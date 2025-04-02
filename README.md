@@ -42,8 +42,9 @@ python manage.py runserver 0:8000
 ```
 
 On the server side, open a browser ([Chrome](https://www.google.com/chrome/) is recommended) and visit <http://localhost:8000/accounts/login/?next=/writing/dashboard/>
+The username and password are both `tingxuan`
 
-On the client side, visit http://SERVER-IP:8000/accounts/login/?next=/writing/dashboard/. Note that one should use the server's correct IP address.
+On the client side, visit http://SERVER-IP:8000/accounts/login/?next=/writing/dashboard/ Note that one should use the server's correct IP address.
 
 ## Use
 
